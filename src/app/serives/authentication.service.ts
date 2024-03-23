@@ -62,10 +62,11 @@ private baseUrl1 = 'http://localhost:8087/api/v1/demo-controller'
           }
         }
       }
-   
     }
+  }
 
-
+  getCurrentUsersWithRole(id: number, role: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl +"/current/user/" + id+"/"+role);
   }
 
 }
