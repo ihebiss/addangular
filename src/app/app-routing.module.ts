@@ -7,6 +7,7 @@ import { RegisterComponent } from './FrontOffice/register/register.component';
 import { ForbiddenComponent } from './FrontOffice/forbidden/forbidden.component';
 import { AuthGuard } from './serives/Auths-Last/auth.guard';
 import { UserComponent } from './FrontOffice/user/user.component';
+import { StatsComponent } from './BackOffice/stats/stats.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,11 @@ const routes: Routes = [
 {
 path:"user",
 component:UserComponent , canActivate:[AuthGuard],data:{roles:['USER']}
-}
+},
+{
+  path:"stats",
+  component:StatsComponent 
+  }
 
 ];
 

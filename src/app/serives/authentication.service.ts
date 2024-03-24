@@ -5,7 +5,7 @@ import { AuthenticationResponse } from '../FrontOffice/models/authentication-res
 import { AuthenticationRequest } from '../FrontOffice/models/authentication-request';
 import { VerificationRequest } from '../FrontOffice/models/verification-request';
 import { UserAuthServiceService } from './auth/user-auth-service.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,6 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
 
   private baseUrl = 'http://localhost:8087/api/v1/auth'
-
 private baseUrl1 = 'http://localhost:8087/api/v1/demo-controller'
   requestHeader = new HttpHeaders(
 {
@@ -68,5 +67,11 @@ private baseUrl1 = 'http://localhost:8087/api/v1/demo-controller'
   getCurrentUsersWithRole(id: number, role: string): Observable<any> {
     return this.http.get<any>(this.baseUrl +"/current/user/" + id+"/"+role);
   }
-
+//****** STATS ******* */
+  
+  getLengthByRole(role:string) {
+    return this.http.get<any[]>(this.baseUrl +"/users/connected/"+role).pipe(
+      map((users: any[]) => users.length)
+    );
+  }
 }

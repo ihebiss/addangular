@@ -40,4 +40,6 @@ export class UserAuthServiceService {
   public isLoggedIn() {
     return this.getRoles() && this.getToken();
   }
+
+
 }

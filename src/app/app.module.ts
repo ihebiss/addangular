@@ -21,6 +21,7 @@ import { AuthGuard } from './serives/Auths-Last/auth.guard';
 import { AuthInterceptor } from './serives/Auths-Last/auth.interceptor';
 import { AuthenticationService } from './serives/authentication.service';
 import { PasswordComponent } from './FrontOffice/password/password.component';
+import { StatsComponent } from './BackOffice/stats/stats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { PasswordComponent } from './FrontOffice/password/password.component';
     AdminComponent,
     UserComponent,
     ForbiddenComponent,
-    PasswordComponent
+    PasswordComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

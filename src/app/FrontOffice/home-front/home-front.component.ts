@@ -8,25 +8,26 @@ import { Patient } from '../models/Patient';
 })
 export class HomeFrontComponent implements OnInit{
 
-   UserConnected! :any;
-  ngOnInit(): void {
-   this.UserConnected = localStorage.getItem('Patient');
-   console.log(typeof this.UserConnected);
-   const abc =JSON.parse(this.UserConnected);
-   console.log(abc.user);
-   console.log(abc.idpatient);
+ 
+patient_Connecter!: Patient;
 
-   const pas: Patient ={
-    idpatient: abc.idpatient,
-    user:abc.user,
-    typePatient: abc.typePatient,
-    archiver: abc.archiver,
+
+
+  ngOnInit(): void {
+   const UserConnected_String = localStorage.getItem('Patient');
+   const UserConnected = UserConnected_String ? JSON.parse(UserConnected_String) : null;
+   this.patient_Connecter ={
+    idpatient: UserConnected.idpatient,
+    user: UserConnected.user,
+    typePatient: UserConnected.typePatient,
+    archiver: UserConnected.archiver,
 }
-   console.log("Brahmi------------------");
-   console.log(pas);
-   
-   
-  }
+console.log("----- USER PATIENT------");
+console.log(this.patient_Connecter);
+
+   }
+
+
   
 
 
